@@ -1,0 +1,31 @@
+// brute
+
+class Solution {
+public:
+    int subarraysDivByK(vector<int>& nums, int k) {
+        
+        int i=0;
+        int count=0;
+        
+        if(nums.size()==0){
+            return 0;
+        }
+        
+        while(i<nums.size()){
+            int sum=0;
+        for(int j=i;j<nums.size();j++){
+            
+            sum=sum+nums[j];
+            if(sum%k==0){
+                count++;
+            }
+            if(j==nums.size()-1){
+                i++;
+            }
+        }
+        }
+        return count;
+    }
+};
+
+//optimised
