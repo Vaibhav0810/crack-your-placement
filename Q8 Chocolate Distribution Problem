@@ -1,0 +1,29 @@
+// { Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
+
+ // } Driver Code Ends
+class Solution{
+    public:
+    long long findMinDiff(vector<long long> a, long long n, long long m){
+    //code
+        sort(a.begin(),a.end());
+        
+        
+        int diff=a[m-1]-a[0];
+        
+        int i=1;
+        for(int j=m;j<n;){
+            if(a[j]-a[i]<diff){
+                diff=a[j]-a[i];
+                
+            }
+            else{
+                i++;
+                j++;
+            }
+        }
+        
+        return diff;
+    }   
+};
