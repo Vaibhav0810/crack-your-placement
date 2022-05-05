@@ -1,0 +1,30 @@
+// brute force approach
+
+class Solution {
+public:
+    int maxProfit(vector<int>& arr) {
+         if(arr.size()==0){
+            return 0;
+        }
+        
+        int diff=0;
+        
+        int i=0;
+        
+        while(i<arr.size()-1){
+        for(int j=i+1;j<arr.size();j++){
+            if(arr[j]-arr[i]>diff){
+                diff=arr[j]-arr[i];
+            }
+            
+            
+        }
+            i++;
+    }
+        
+    
+    return diff;
+    }
+};
+
+// optimised
