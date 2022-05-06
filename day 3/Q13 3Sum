@@ -1,1 +1,35 @@
 
+// O(n^3)
+
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+      
+        
+        
+        vector<vector<int>>ans;
+        vector<int>subset;
+        
+        for(int i=0;i<nums.size()-2;i++){ 
+            for(int j=i+1;j<nums.size()-1;j++){
+                for(int k=j+1;k<nums.size();k++){
+                    if(nums[i]+nums[j]+nums[k]==0){
+                        subset.push_back(nums[i]);
+                        subset.push_back(nums[j]);
+                        subset.push_back(nums[k]);
+                        sort(subset.begin(),subset.end());
+                        if(find(ans.begin(),ans.end(),subset)==ans.end())
+                        ans.push_back(subset);
+                        
+                    }
+                    subset.clear();
+                }
+            }
+        }
+        return ans;
+        
+    }
+};
+
+// optimised  O(n^2)
+
