@@ -1,1 +1,46 @@
+// brute O(n^2)
 
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        
+        int max=INT_MIN;
+        int area=0;
+        
+        for(int i=0;i<height.size();i++){
+            for(int j=i+1;j<height.size();j++){
+                 area=min(height[i],height[j])*(j-i);
+                if(area>max){
+                    max=area;
+                }
+            }
+            area=0;
+        }
+        return max;
+        
+    }
+};
+
+// optimised O(n)
+
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        
+        int l=0;
+        int r=height.size()-1;
+        int area=0;
+        
+        while(l<r){
+            area=max(area,(min(height[l],height[r])*(r-l)));
+            
+            if(height[l]<height[r]){
+                l++;
+            }
+            else{
+                r--;
+            }
+        }
+        return area;
+    }
+};
