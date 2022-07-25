@@ -1,0 +1,52 @@
+Two pass 
+Time comp=O(2*n)
+
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        
+        if(head==NULL){
+            return NULL;
+        }
+        
+        
+        ListNode* temp=head;
+        int count=0;
+        
+        while(temp){
+            count++;
+            temp=temp->next;
+        }
+        temp=head;
+        if(n==count){
+            return head->next;
+        }
+        
+        
+        int removeafter=count-n;
+        while(removeafter){
+            if(removeafter==1){
+                temp->next=temp->next->next;
+                return head;
+            }
+            removeafter--;
+            temp=temp->next;
+        }
+        return head;
+    }
+};
+
+2. One pass
+Time Comp O(n)
+
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode *fast = head, *slow = head;
+        for (int i = 0; i < n; i++) fast = fast->next;
+        if (!fast) return head->next;
+        while (fast->next) fast = fast->next, slow = slow->next;
+        slow->next = slow->next->next;
+        return head;
+    }
+};
