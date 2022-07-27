@@ -59,7 +59,7 @@ public:
 };
 
 Time- O(nlog n)
-Space- O(1)
+Space- O(log n)
 
 class Solution {
 public:
