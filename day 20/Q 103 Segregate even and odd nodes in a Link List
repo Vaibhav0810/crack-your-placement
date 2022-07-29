@@ -38,3 +38,46 @@ public:
     }
 };
 
+Space-  O(1) bcoz only pointers use ho rhe h
+
+class Solution{
+public:
+    Node* divide(int N, Node *head){
+        // code here
+        Node* temp=head;
+        Node* odd=NULL;
+        Node* o=NULL;
+        Node* even=NULL;
+        Node* e=NULL;
+        
+        while(temp){
+            if(temp->data%2==0){
+                if(even==NULL){
+                    even=temp;
+                    e=temp;
+                }
+                else{
+                    e->next=temp;
+                    e=e->next;
+                }
+            }
+            else{
+                if(odd==NULL){
+                    odd=temp;
+                    o=temp;
+                }
+                else{
+                    o->next=temp;
+                    o=o->next;
+                }
+            }
+            temp=temp->next;
+        }
+        if(o) o->next=NULL;
+        if(e) e->next=odd;
+        if(even) return even;
+        return odd;
+    }
+};
+
+
