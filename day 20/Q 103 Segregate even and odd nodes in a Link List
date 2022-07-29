@@ -1,0 +1,40 @@
+Time- O(n)
+Space- O(n)
+
+class Solution{
+public:
+    Node* divide(int N, Node *head){
+        // code here
+        
+        Node* temp=head;
+        vector<int> odd;
+        vector<int> even;
+        int count=0;
+        while(temp){
+            if((temp->data)%2!=0){
+                odd.push_back(temp->data);
+                count++;
+            }
+            else{
+                even.push_back(temp->data);
+            }
+            temp=temp->next;
+        }
+        temp=head;
+        int fill=N-count;
+        int i=0;
+        while(fill--){
+            temp->data=even[i];
+            i++;
+            temp=temp->next;
+        }
+        i=0;
+        while(count--){
+            temp->data=odd[i];
+            i++;
+            temp=temp->next;
+        }
+        return head;
+    }
+};
+
