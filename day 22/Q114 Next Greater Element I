@@ -1,0 +1,36 @@
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int> nums1, vector<int> nums2) {
+        
+        bool check=false;
+        int j=0;
+        while(j<nums1.size()){
+            check=false;
+            int x=0;
+            int store=0;
+            while(x<nums2.size()){
+                if(nums1[j]==nums2[x]){
+                    store=x;
+                }
+                x++;
+            }
+            
+        for(int i=store;i<nums2.size();i++){
+            if(nums1[j]<nums2[i]){
+                nums1[j]=nums2[i];
+                check=true;
+                break;
+            }
+            
+        }
+            if(check==false){
+                nums1[j]=-1;
+            }
+            j++;
+            
+        }
+        return nums1;
+    }
+};
+
+
