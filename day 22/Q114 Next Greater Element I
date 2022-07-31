@@ -1,6 +1,15 @@
 Time- O(n^2)
 Space- O(1)
 
+// jko 0 krke j<nusm1.size() tk run krenge usme firr ye sb
+// isme phle x nikala h ki mtlb jo number ka next greater find krna h uska index kaunsa h nums2 mei 
+// uske bdd uss index ko store mei put krke i ko udhr se hi shuru krenge aur nums2.size tk lekr jaayenge usme find krenge
+// agr next greater milta h to nums1 mei put krdenge j ki jgh
+// aru check =true krke break
+// ni mila to (check ==flse) h to -1lga denge udhr aur firr j++ n check =false;
+
+// end mei return nums1
+
 class Solution {
 public:
     vector<int> nextGreaterElement(vector<int> nums1, vector<int> nums2) {
