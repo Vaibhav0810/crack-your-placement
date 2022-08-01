@@ -28,7 +28,7 @@ class Solution
                else if(A[i]=='*') s.push(v2*v1);
                else if(A[i]=='/') s.push(v2/v1);
            }
-           else s.push(A[i]-'0');  // ye kyu kra ?
+           else s.push(A[i]-'0');  // ye kyu kra ?  bcoz ascii table mei jb hm uske iss se minus krenge to jo ascii mei value aayegi vo push hogi
        }
        return s.top();
     }
