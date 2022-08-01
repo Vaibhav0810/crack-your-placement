@@ -116,6 +116,52 @@ Popped element from stack2 is : 15
   
   
   // Upr vale method mei bht faltu ki space use ho rhi  space efficient ni h
+  // ye optimised method isme top1 n 2 already declare h function mei
+  // top1 =-1
+  // top2= size
+  // size= 100
   
+  // isme ik hi array mei ik brr aage se push aur peeche se push kr rhe h bcoz total space 100 chahie bczo max stack size 100 hongi given in Q
+  // to iss se agr stack 1 mei ik hi element hoga to hm 99 s2 ko de skte h space waste ni hogi
   
+  void twoStacks :: push1(int x)
+{
+    if(top1<top2-1){
+        top1++;
+        arr[top1]=x;
+        
+    }
+}
+   
+//Function to push an integer into the stack2.
+void twoStacks ::push2(int x)
+{
+    if(top1<top2-1){
+        top2--;
+        arr[top2]=x;
+    }
+}
+   
+//Function to remove an element from top of the stack1.
+int twoStacks ::pop1()
+{
+    if(top1>=0){
+        int x=arr[top1];
+        top1--;
+        return x;
+    }
+    else
+    return -1;
+}
+
+//Function to remove an element from top of the stack2.
+int twoStacks :: pop2()
+{
+    if(top2<size){
+        int x=arr[top2];
+        top2++;
+        return x;
+    }
+    else return -1;
+}
   
